@@ -8,12 +8,15 @@ const Nav = ({ children }) => {
   return <View style={styles.nav}>{children}</View>;
 };
 
+export const navHeight = 80;
 export default Nav;
 
 const styles = StyleSheet.create({
   nav: {
-    height: 50,
+    height: navHeight,
     width,
+    borderTopWidth: 1,
+    borderTopColor: colors.borderColor,
     backgroundColor: colors.nav,
     flexDirection: 'row',
     justifyContent: 'space-around',

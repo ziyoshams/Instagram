@@ -1,3 +1,4 @@
 export const colors = {
-  nav: '#999999'
+  nav: '#FAFAFA',
+  borderColor: 'rgba(0,0,0,.0975)'
 };
