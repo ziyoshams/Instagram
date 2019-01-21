@@ -9,8 +9,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import Swipable from 'react-native-gesture-handler/Swipeable';
 
-import Nav, { navHeight, TopNav } from '../CustomNav';
+import Nav, { navHeight, TopNav } from '../../CustomNav';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
@@ -54,7 +55,8 @@ const styles = StyleSheet.create({
     width,
     height: height - navHeight,
     borderColor: 'red',
-    borderWidth: 1
+    borderWidth: 1,
+    paddingHorizontal: 15
   },
   sections: {
     width,

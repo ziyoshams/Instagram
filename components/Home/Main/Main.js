@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Dimensions, ScrollView, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import Nav, { navHeight, TopNav } from '../CustomNav';
+import { navHeight, TopNav } from '../../CustomNav';
 import Stories from './Stories';
 import Post from './Post';
-import MainNavigation from '../CustomNav/MainNavigation';
+import MainNavigation from '../../CustomNav/MainNavigation';
 
-import data from '../../data/users.json';
+import data from '../../../data/users.json';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
@@ -16,10 +16,6 @@ const ICON_SIZE = 24;
 class Main extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    console.log(data);
   }
 
   render() {
@@ -36,9 +32,9 @@ class Main extends Component {
           </TopNav>
           <ScrollView style={styles.mainArea}>
             <Stories />
-          {
-            data.map(post => <Post key={post.id} post={post}/>)
-          }
+            {data.map(post => (
+              <Post key={post.id} post={post} />
+            ))}
           </ScrollView>
         </SafeAreaView>
 

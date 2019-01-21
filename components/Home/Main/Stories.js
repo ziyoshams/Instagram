@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import { colors } from '../../colors';
+import { colors } from '../../../colors';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
