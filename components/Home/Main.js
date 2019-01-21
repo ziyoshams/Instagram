@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  Dimensions,
-  ScrollView,
-  SafeAreaView,
-  TouchableOpacity
-} from 'react-native';
+import { View, StyleSheet, Text, Dimensions, ScrollView, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import Nav, { navHeight, TopNav } from '../CustomNav';
 import Stories from './Stories';
 import Post from './Post';
+import MainNavigation from '../CustomNav/MainNavigation';
+
+import data from '../../data/users.json';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
@@ -23,13 +18,17 @@ class Main extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    console.log(data);
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 1 }}>
           <TopNav>
             <Icon style={{ flex: 1 }} name="camera" size={ICON_SIZE} />
-            <Text style={{ fontSize: 25, flex: 3, textAlign: 'center' }}>Instagram</Text>
+            <Text style={styles.headerText}>Instagram</Text>
             <View style={styles.topNavColumn3}>
               <Icon name="square" size={ICON_SIZE} />
               <Icon name="telegram-plane" size={ICON_SIZE} />
@@ -37,33 +36,13 @@ class Main extends Component {
           </TopNav>
           <ScrollView style={styles.mainArea}>
             <Stories />
-
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+          {
+            data.map(post => <Post key={post.id} post={post}/>)
+          }
           </ScrollView>
         </SafeAreaView>
 
-        <Nav>
-          <Icon.Button name="home" size={25} color="#000" backgroundColor="transparent" />
-          <Icon.Button
-            name="search"
-            size={25}
-            color="#000"
-            backgroundColor="transparent"
-            onPress={() => {
-              this.props.navigation.navigate('Explore');
-            }}
-          />
-          <TouchableOpacity style={styles.addButton}>
-            <Icon name="plus" size={15} color="#000" />
-          </TouchableOpacity>
-          <Icon.Button name="heart" size={25} color="#000" backgroundColor="transparent" />
-          <Icon.Button name="user" size={25} color="#000" backgroundColor="transparent" />
-        </Nav>
+        <MainNavigation navigation={this.props.navigation} />
       </View>
     );
   }
@@ -90,22 +69,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 5
   },
-  text: {
-    alignSelf: 'center',
-    color: '#000',
-    fontSize: 40
-  },
-  addButton: {
-    borderWidth: 1,
-    borderColor: '#000',
-    padding: 5,
-    width: 26,
-    height: 26,
-    borderRadius: 6,
-    margin: 5,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
+  headerText: { fontSize: 25, flex: 3, textAlign: 'center' },
   topNavColumn3: {
     flex: 1,
     flexDirection: 'row',

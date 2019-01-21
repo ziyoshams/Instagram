@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Dimensions,
-  SafeAreaView,
-  TouchableOpacity
-} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-
-import Nav from '../CustomNav';
+import { View, StyleSheet, ScrollView, Dimensions, SafeAreaView } from 'react-native';
+import MainNavigation from '../CustomNav/MainNavigation';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
@@ -20,36 +10,10 @@ class Explore extends Component {
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 1 }}>
-          <ScrollView style={{ flex: 1 }}>
-           
-          </ScrollView>
+          <ScrollView style={{ flex: 1 }} />
         </SafeAreaView>
 
-        <Nav>
-          <Icon.Button
-            name="home"
-            size={25}
-            color="#000"
-            backgroundColor="transparent"
-            onPress={() => {
-              this.props.navigation.navigate('Home');
-            }}
-          />
-          <Icon.Button
-            name="search"
-            size={25}
-            color="#000"
-            backgroundColor="transparent"
-            onPress={() => {
-              this.props.navigation.navigate('Explore');
-            }}
-          />
-          <TouchableOpacity style={styles.addButton}>
-            <Icon name="plus" size={15} color="#000" />
-          </TouchableOpacity>
-          <Icon.Button name="heart" size={25} color="#000" backgroundColor="transparent" />
-          <Icon.Button name="user" size={25} color="#000" backgroundColor="transparent" />
-        </Nav>
+        <MainNavigation navigation={this.props.navigation} />
       </View>
     );
   }
