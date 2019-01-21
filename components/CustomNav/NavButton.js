@@ -1,7 +1,7 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-const NavButton = ({ name, onPress, size, ...rest }) => {
+const NavButton = ({ name, onPress, size, children, ...rest }) => {
   return (
     <Icon.Button
       name={name}
@@ -10,7 +10,9 @@ const NavButton = ({ name, onPress, size, ...rest }) => {
       backgroundColor="transparent"
       onPress={onPress}
       {...rest}
-    />
+    >
+      {children}
+    </Icon.Button>
   );
 };
 

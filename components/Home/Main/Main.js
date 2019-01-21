@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { navHeight, TopNav } from '../../CustomNav';
 import Stories from './Stories';
 import Post from './Post';
-import MainNavigation from '../../CustomNav/MainNavigation';
+import { MainNavigation, NavButton } from '../../CustomNav';
 
 import data from '../../../data/users.json';
 
@@ -23,7 +23,7 @@ class Main extends Component {
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 1 }}>
           <TopNav>
-            <Icon style={{ flex: 1 }} name="camera" size={ICON_SIZE} />
+            <NavButton style={{ flex: 1 }} name="camera" size={ICON_SIZE} onPress={() => this.props.onPress(1)} />
             <Text style={styles.headerText}>Instagram</Text>
             <View style={styles.topNavColumn3}>
               <Icon name="square" size={ICON_SIZE} />
