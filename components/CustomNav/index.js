@@ -1,15 +1,18 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import { colors } from '../../colors';
+import TopNav from './TopNav';
 
 const width = Dimensions.get('window').width;
+const navHeight = 80;
 
 const Nav = ({ children }) => {
   return <View style={styles.nav}>{children}</View>;
 };
 
-export const navHeight = 80;
+
 export default Nav;
+export { TopNav, navHeight}
 
 const styles = StyleSheet.create({
   nav: {

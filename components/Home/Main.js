@@ -9,11 +9,14 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import Nav, { navHeight } from '../CustomNav';
+
+import Nav, { navHeight, TopNav } from '../CustomNav';
 import Stories from './Stories';
+import Post from './Post';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
+const ICON_SIZE = 24;
 
 class Main extends Component {
   constructor(props) {
@@ -24,27 +27,23 @@ class Main extends Component {
     return (
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 1 }}>
-          <Stories />
+          <TopNav>
+            <Icon style={{ flex: 1 }} name="camera" size={ICON_SIZE} />
+            <Text style={{ fontSize: 25, flex: 3, textAlign: 'center' }}>Instagram</Text>
+            <View style={styles.topNavColumn3}>
+              <Icon name="square" size={ICON_SIZE} />
+              <Icon name="telegram-plane" size={ICON_SIZE} />
+            </View>
+          </TopNav>
           <ScrollView style={styles.mainArea}>
-            <Text style={styles.text}>Main</Text>
-            <View style={styles.sections}>
-              <Text style={styles.text}>1</Text>
-            </View>
-            <View style={styles.sections}>
-              <Text style={styles.text}>2</Text>
-            </View>
-            <View style={styles.sections}>
-              <Text style={styles.text}>3</Text>
-            </View>
-            <View style={styles.sections}>
-              <Text style={styles.text}>4</Text>
-            </View>
-            <View style={styles.sections}>
-              <Text style={styles.text}>5</Text>
-            </View>
-            <View style={styles.sections}>
-              <Text style={styles.text}>6</Text>
-            </View>
+            <Stories />
+
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
           </ScrollView>
         </SafeAreaView>
 
@@ -81,9 +80,7 @@ const styles = StyleSheet.create({
   },
   mainArea: {
     width,
-    height: height - navHeight,
-    borderColor: 'red',
-    borderWidth: 1
+    height: height - navHeight
   },
   sections: {
     width,
@@ -102,11 +99,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#000',
     padding: 5,
-    width: 30,
-    height: 30,
+    width: 26,
+    height: 26,
     borderRadius: 6,
     margin: 5,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  topNavColumn3: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   }
 });
