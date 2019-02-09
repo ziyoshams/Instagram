@@ -7,7 +7,8 @@ import Stories from './Stories';
 import Post from './Post';
 import { MainNavigation, NavButton } from '../../CustomNav';
 
-import data from '../../../data/users.json';
+import { users } from '../../../data/users.js';
+import { colors } from '../../../data/colors';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
@@ -23,7 +24,12 @@ class Main extends Component {
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 1 }}>
           <TopNav>
-            <NavButton style={{ flex: 1 }} name="camera" size={ICON_SIZE} onPress={() => this.props.onPress(1)} />
+            <NavButton
+              style={{ flex: 1 }}
+              name="camera"
+              size={ICON_SIZE}
+              onPress={() => this.props.onPress(1)}
+            />
             <Text style={styles.headerText}>Instagram</Text>
             <View style={styles.topNavColumn3}>
               <Icon name="square" size={ICON_SIZE} />
@@ -32,13 +38,13 @@ class Main extends Component {
           </TopNav>
           <ScrollView style={styles.mainArea}>
             <Stories />
-            {data.map(post => (
+            {/* The list of posts */}
+            {users.map(post => (
               <Post key={post.id} post={post} />
             ))}
           </ScrollView>
+          <MainNavigation />
         </SafeAreaView>
-
-        <MainNavigation navigation={this.props.navigation} />
       </View>
     );
   }
@@ -51,7 +57,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     width,
     height,
-    paddingVertical: 10
+    backgroundColor: colors.nav
   },
   mainArea: {
     width,

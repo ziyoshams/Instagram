@@ -12,6 +12,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.scrollRef = React.createRef();
+    console.disableYellowBox;
   }
 
   handleBackPress = index => {

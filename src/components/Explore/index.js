@@ -11,9 +11,8 @@ class Explore extends Component {
       <View style={styles.container}>
         <SafeAreaView style={{ flex: 1 }}>
           <ScrollView style={{ flex: 1 }} />
+          <MainNavigation />
         </SafeAreaView>
-
-        <MainNavigation navigation={this.props.navigation} />
       </View>
     );
   }

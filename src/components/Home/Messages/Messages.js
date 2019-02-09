@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Swipeout from 'react-native-swipeout';
 
 import Nav, { navHeight, TopNav, NavButton } from '../../CustomNav';
-import users from '../../../data/users.json';
+import { users } from '../../../data/users';
 
 const viewPort = Dimensions.get('window');
 const { width, height } = viewPort;
@@ -138,6 +138,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-end',
     paddingRight: 5
-    
   }
 });

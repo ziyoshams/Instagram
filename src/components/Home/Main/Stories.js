@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-import { colors } from '../../../colors';
+import { colors } from '../../../data/colors';
 
-const viewPort = Dimensions.get('window');
-const { width, height } = viewPort;
+const { width, height } = Dimensions.get('window');
 
-export const storiesHeight = 100;
+export const storiesWindowHeight = 100;
+const storyHeight = 60;
 
 class Stories extends Component {
   constructor(props) {
@@ -68,16 +68,14 @@ class Stories extends Component {
 
 export default Stories;
 
-const storyHeight = 60;
-
 const styles = StyleSheet.create({
   storiesContainer: {
-    minHeight: storiesHeight,
+    minHeight: storiesWindowHeight,
     flexDirection: 'row',
-    marginVertical: 10,
-    paddingHorizontal: 15,
+    paddingHorizontal: 13,
     borderBottomColor: colors.borderColor,
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    alignItems: 'center',
   },
   circles: {
     width: storyHeight,
@@ -86,7 +84,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: 'purple',
     margin: 8,
-    backgroundColor: "#ecf0f1",
+    backgroundColor: '#ecf0f1',
     justifyContent: 'center',
     alignItems: 'center'
   }
